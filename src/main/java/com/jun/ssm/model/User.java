@@ -11,6 +11,8 @@
 
 package com.jun.ssm.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class User {
@@ -18,11 +20,7 @@ public class User {
     private String userName;
     private String userPhone;
     private String userEmail;
-    private String userPwd;
-    private String pwdSalt;
     private Date createTime;
-    private Date modifyTime;
-    private Short isDelete;
 
     public Long getId() {
         return id;
@@ -55,23 +53,7 @@ public class User {
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
-
-    public String getUserPwd() {
-        return userPwd;
-    }
-
-    public void setUserPwd(String userPwd) {
-        this.userPwd = userPwd;
-    }
-
-    public String getPwdSalt() {
-        return pwdSalt;
-    }
-
-    public void setPwdSalt(String pwdSalt) {
-        this.pwdSalt = pwdSalt;
-    }
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     public Date getCreateTime() {
         return createTime;
     }
@@ -80,19 +62,5 @@ public class User {
         this.createTime = createTime;
     }
 
-    public Date getModifyTime() {
-        return modifyTime;
-    }
 
-    public void setModifyTime(Date modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public Short getIsDelete() {
-        return isDelete;
-    }
-
-    public void setIsDelete(Short isDelete) {
-        this.isDelete = isDelete;
-    }
 }
